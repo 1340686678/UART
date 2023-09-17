@@ -21,12 +21,7 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-#include "stdio.h"
-
-extern uint8_t rx_len;  
-extern uint8_t recv_end_flag;
-extern uint8_t rx_buffer[200];
-
+#include <stdio.h>
 /* USER CODE END 0 */
 
 UART_HandleTypeDef hlpuart1;
@@ -198,5 +193,14 @@ int fgetc(FILE *f)
 	uint8_t  ch;
   HAL_UART_Receive(&hlpuart1,(uint8_t *)&ch, 1, 0xFFFF);
 	return  ch;
+}
+
+
+void MY_UART_Transmit(unsigned char* data, unsigned char len)
+{
+		BDMA->IFCR |= 0xF0;
+		HAL_UART_Transmit_DMA(&hlpuart1, data, len);
+		BDMA_Channel_TypeDef * bdma = hdma_lpuart1_tx.Instance;
+		while(bdma->CNDTR != 0);
 }
 /* USER CODE END 1 */

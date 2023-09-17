@@ -45,14 +45,11 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-	uint8_t rx_len=0;  
-	uint8_t recv_end_flag=0;
-	uint8_t rx_buffer[200];
-	ALIGN_32BYTES ( unsigned char   rx_buffer[200]) __attribute__((section(".ARM.__at_0x38000000")));
-	uint8_t tx_buffer[200];
-	ALIGN_32BYTES ( unsigned char   tx_buffer[200]) __attribute__((section(".ARM.__at_0x380000E0")));
-	uint8_t test=0; 
-	extern DMA_HandleTypeDef hdma_lpuart1_tx;
+extern uint8_t rx_len;  
+extern uint8_t recv_end_flag;
+extern uint8_t rx_buffer[200];
+extern uint8_t tx_buffer[200];
+extern DMA_HandleTypeDef hdma_lpuart1_tx;
 
 /* USER CODE END PV */
 
@@ -119,13 +116,7 @@ int main(void)
 		{	
 			printf("接收到的数据长度为%d\r\n",rx_len);
 			
-			BDMA->IFCR |= 0xF0;
-			HAL_UART_Transmit_DMA(&hlpuart1,tx_buffer, rx_len);
-			BDMA_Channel_TypeDef * bdma = hdma_lpuart1_tx.Instance;
-			while(bdma->CNDTR != 0){
-				printf("%d\r\n",bdma->CNDTR);
-			}
-
+			MY_UART_Transmit(tx_buffer, rx_len);
 			
 			for(uint8_t i=0;i<rx_len;i++)
 			{

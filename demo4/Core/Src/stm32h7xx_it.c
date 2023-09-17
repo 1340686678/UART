@@ -28,11 +28,12 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-extern uint8_t rx_len;  
-extern uint8_t recv_end_flag;
-extern uint8_t rx_buffer[200];
-extern uint8_t tx_buffer[200];
-
+uint8_t rx_len=0;  
+uint8_t recv_end_flag=0;
+uint8_t rx_buffer[200];
+ALIGN_32BYTES ( unsigned char   rx_buffer[200]) __attribute__((section(".ARM.__at_0x38000000")));
+uint8_t tx_buffer[200];
+ALIGN_32BYTES ( unsigned char   tx_buffer[200]) __attribute__((section(".ARM.__at_0x380000E0")));
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -247,11 +248,10 @@ void LPUART1_IRQHandler(void)
 	if((tmp_flag != RESET))
 	{ 
 		__HAL_UART_CLEAR_IDLEFLAG(&hlpuart1);
-		// temp = huart1.Instance->ISR;  
-		// temp = huart1.Instance->RDR; 
 		
 		//获取接收到长度
 		temp  = __HAL_DMA_GET_COUNTER(&hdma_lpuart1_rx);
+		
 		//DMA停止
 		HAL_UART_DMAStop(&hlpuart1);
 		
@@ -259,8 +259,8 @@ void LPUART1_IRQHandler(void)
     memcpy(tx_buffer, rx_buffer, rx_len);	
 		recv_end_flag = 1;		
 		
-		HAL_UART_Receive_DMA(&hlpuart1,rx_buffer,200);
 	}
+	HAL_UART_Receive_DMA(&hlpuart1,rx_buffer,200);
   /* USER CODE END LPUART1_IRQn 0 */
   HAL_UART_IRQHandler(&hlpuart1);
   /* USER CODE BEGIN LPUART1_IRQn 1 */
