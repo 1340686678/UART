@@ -102,9 +102,7 @@ int main(void)
 	HAL_UART_Receive_DMA(&hlpuart1,rx_buffer,sizeof(rx_buffer));
 	recv_end_flag=0;
 	rx_len = 0;
-
-	printf("UART_IDLE_DMA接收不定长数据！\r\n");
-
+//	printf("UART_IDLE_DMA接收不定长数据！\r\n");
 	HAL_Delay(1000);
   /* USER CODE END 2 */
 
@@ -114,14 +112,13 @@ int main(void)
   {
 		if(recv_end_flag ==1)			
 		{	
-			printf("接收到的数据长度为%d\r\n",rx_len);
+			//printf("接收到的数据长度为%d\r\n",rx_len);
 			
 			MY_UART_Transmit(tx_buffer, rx_len);
 			
 			for(uint8_t i=0;i<rx_len;i++)
 			{
 				rx_buffer[i]=0;
-				tx_buffer[i]=0;
 			}
 			rx_len=0;
 			recv_end_flag=0;

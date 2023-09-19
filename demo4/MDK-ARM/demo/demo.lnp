@@ -27,7 +27,6 @@
 "demo\stm32h7xx_hal_exti.o"
 "demo\stm32h7xx_hal_tim.o"
 "demo\stm32h7xx_hal_tim_ex.o"
-"demo\modebus.o"
 --library_type=microlib --strict --scatter "demo\demo.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

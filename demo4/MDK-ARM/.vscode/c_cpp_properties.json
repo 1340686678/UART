@@ -3,16 +3,17 @@
         {
             "name": "demo",
             "includePath": [
-                "e:\\plante\\UART\\demo4\\Core\\Inc",
-                "e:\\plante\\UART\\demo4\\Drivers\\STM32H7xx_HAL_Driver\\Inc",
-                "e:\\plante\\UART\\demo4\\Drivers\\STM32H7xx_HAL_Driver\\Inc\\Legacy",
-                "e:\\plante\\UART\\demo4\\Drivers\\CMSIS\\Device\\ST\\STM32H7xx\\Include",
-                "e:\\plante\\UART\\demo4\\Drivers\\CMSIS\\Include",
+                "e:\\plante\\MODEBUS\\demo1\\Core\\Inc",
+                "e:\\plante\\MODEBUS\\demo1\\Drivers\\STM32H7xx_HAL_Driver\\Inc",
+                "e:\\plante\\MODEBUS\\demo1\\Drivers\\STM32H7xx_HAL_Driver\\Inc\\Legacy",
+                "e:\\plante\\MODEBUS\\demo1\\Drivers\\CMSIS\\Device\\ST\\STM32H7xx\\Include",
+                "e:\\plante\\MODEBUS\\demo1\\Drivers\\CMSIS\\Include",
+                "e:\\plante\\MODEBUS\\demo1\\Modebus",
                 "E:\\software\\keil\\keil_v5\\ARM\\ARMCC\\include",
                 "E:\\software\\keil\\keil_v5\\ARM\\ARMCC\\include\\rw",
-                "e:\\plante\\UART\\demo4\\MDK-ARM",
-                "e:\\plante\\UART\\demo4\\Core\\Src",
-                "e:\\plante\\UART\\demo4\\Drivers\\STM32H7xx_HAL_Driver\\Src"
+                "e:\\plante\\MODEBUS\\demo1\\MDK-ARM",
+                "e:\\plante\\MODEBUS\\demo1\\Core\\Src",
+                "e:\\plante\\MODEBUS\\demo1\\Drivers\\STM32H7xx_HAL_Driver\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

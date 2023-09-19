@@ -10,7 +10,8 @@
                     "${workspaceFolder}/Drivers/CMSIS/Include",
                     "${workspaceFolder}/Drivers/STM32H7xx_HAL_Driver/Inc",
                     "${workspaceFolder}/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
-                    "${workspaceFolder}/MDK-ARM/RTE/_demo"
+                    "${workspaceFolder}/MDK-ARM/RTE/_demo",
+                    "${workspaceFolder}/Modebus"
                 ],
                 "limitSymbolsToIncludedHeaders": true
             },
@@ -21,7 +22,8 @@
                 "${workspaceFolder}/Drivers/CMSIS/Include",
                 "${workspaceFolder}/Drivers/STM32H7xx_HAL_Driver/Inc",
                 "${workspaceFolder}/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
-                "${workspaceFolder}/MDK-ARM/RTE/_demo"
+                "${workspaceFolder}/MDK-ARM/RTE/_demo",
+                "${workspaceFolder}/Modebus"
             ],
             "defines": [
                 "_DEBUG",
